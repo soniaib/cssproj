@@ -45,6 +45,18 @@
  	<name>new specialization</name>
  	<capacity>56</capacity>
 </specialization>
+<candidate>
+	<cnp>2890420574799</cnp>
+	<first_name>Serban</first_name>
+	<surname>Costandache</surname>
+	<email>test@test.com</email>
+	<info_grade>8.7</info_grade>
+	<math_grade>6.7</math_grade>
+	<high_school_avg_grade>8.23</high_school_avg_grade>
+	<admission_grade>9.78</admission_grade>
+	<first_option>1</first_option>
+	<second_option>3</second_option>
+</candidate>
 <specialization>
 	<id>8</id>
 	<name>new specialization name</name>

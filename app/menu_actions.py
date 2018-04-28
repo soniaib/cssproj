@@ -1,7 +1,7 @@
 menu = {
-    'home':{
-        'text':'Home',
-        'url':'/index'
+    'home': {
+        'text': 'Home',
+        'url': '/index'
     },
     'candidates-list-download': {
         'text': 'Download the list of candidates',

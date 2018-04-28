@@ -1,5 +1,5 @@
 from enum import Enum
-
+import config
 
 # todo : current version does not cope with empty/None values for class
 # attributes
@@ -66,7 +66,7 @@ class Specialization:
 
 
 def get_all_specializations():
-    with open("database.xml", "r+") as f:
+    with open(config.DB_FILE_PATH, "r+") as f:
         new_f = f.readlines()
         result = []
         for line in new_f:
@@ -93,7 +93,7 @@ for x in all_specializations:
 
 
 def get_specialization_by_id(id):
-    with open("database.xml", "r+") as f:
+    with open(config.DB_FILE_PATH, "r+") as f:
         new_f = f.readlines()
         for line in new_f:
             tag = get_begin_tag(line)
@@ -120,7 +120,7 @@ print(found_by_id.to_xml())
 
 
 def delete_specialization_by_id(categ_id):
-    with open("database.xml", "r+") as f:
+    with open(config.DB_FILE_PATH, "r+") as f:
         new_f = f.readlines()
         f.seek(0)
         count = 0
@@ -145,7 +145,7 @@ delete_specialization_by_id(5)
 def save_specialization(category):
     existing = get_specialization_by_id(category.identifier)
     if existing is None:
-        with open("database.xml", "a") as f:
+        with open(config.DB_FILE_PATH, "a") as f:
             f.write(category.to_xml())
         return 'OK'
     else:
@@ -183,7 +183,7 @@ update_specialization(toUpdate)
 
 
 class Candidate:
-    cnp = 0
+    cnp = ' '
     first_name = ' '
     surname = ' '
     email = ' '
@@ -262,7 +262,7 @@ class Candidate:
 
 
 def get_all_candidates():
-    with open("database.xml", "r+") as f:
+    with open(config.DB_FILE_PATH, "r+") as f:
         new_f = f.readlines()
         result = []
         for line in new_f:
@@ -310,7 +310,7 @@ for x in all_candidates:
 
 
 def get_candidate_by_id(cnp_identifier):
-    with open("database.xml", "r+") as f:
+    with open(config.DB_FILE_PATH, "r+") as f:
         new_f = f.readlines()
         for line in new_f:
             tag = get_begin_tag(line)
@@ -358,7 +358,7 @@ print(found_by_id.to_xml())
 
 
 def delete_candidate_by_id(cnp_identifier):
-    with open("database.xml", "r+") as f:
+    with open(config.DB_FILE_PATH, "r+") as f:
         new_f = f.readlines()
         f.seek(0)
         count = 0
@@ -384,7 +384,7 @@ delete_candidate_by_id(123456)
 def save_candidate(new_candidate):
     existing = get_candidate_by_id(new_candidate.cnp)
     if existing is None:
-        with open("database.xml", "a") as f:
+        with open(config.DB_FILE_PATH, "a") as f:
             f.write(new_candidate.to_xml())
         return 'OK'
     else:
@@ -465,7 +465,7 @@ class AdmissionResult:
 
 
 def get_admission_results():
-    with open("database.xml", "r+") as f:
+    with open(config.DB_FILE_PATH, "r+") as f:
         new_f = f.readlines()
         result = []
         for line in new_f:
@@ -492,7 +492,7 @@ for x in all_results:
 
 
 def get_admission_result_for_candidate(candidate_cnp):
-    with open("database.xml", "r+") as f:
+    with open(config.DB_FILE_PATH, "r+") as f:
         new_f = f.readlines()
         for line in new_f:
             tag = get_begin_tag(line)
@@ -519,7 +519,7 @@ print(found_by_id.to_xml())
 
 
 def delete_admission_result_for_candidate(candidate_cnp):
-    with open("database.xml", "r+") as f:
+    with open(config.DB_FILE_PATH, "r+") as f:
         new_f = f.readlines()
         f.seek(0)
         count = 0
@@ -544,7 +544,7 @@ delete_admission_result_for_candidate(987654321)
 def save_admission_result_for_candidate(adm_result):
     existing = get_admission_result_for_candidate(adm_result.candidate_cnp)
     if existing is None:
-        with open("database.xml", "a") as f:
+        with open(config.DB_FILE_PATH, "a") as f:
             f.write(adm_result.to_xml())
         return 'OK'
     else:
@@ -566,7 +566,7 @@ def update_admission_result_for_candidate(adm_result):
         return "Entry not found"
     else:
         delete_admission_result_for_candidate(adm_result.candidate_cnp)
-        with open("database.xml", "a") as f:
+        with open(config.DB_FILE_PATH, "a") as f:
             f.write(adm_result.to_xml())
         return "OK"
 

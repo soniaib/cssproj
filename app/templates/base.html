@@ -3,7 +3,7 @@
         <title>UAIC Student admission</title>
     </head>
     <body>
-        <div>Choose actions:
+        <div>Menu:
             {% for key in actions.keys()%}
                 <a href="{{actions[key]['url']}}"> {{actions[key]['text']}}</a> &#124;
             {% endfor %}
