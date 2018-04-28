@@ -5,11 +5,11 @@ menu = {
     },
     'candidates-list-download': {
         'text': 'Download the list of candidates',
-        'url': ''
+        'url': '/index'
     },
     'upload list of candidates': {
         'text': 'Upload a list of candidates',
-        'url': ''
+        'url': '/index'
     },
     'add-candidate': {
         'text': 'Add candidate to list',
@@ -17,6 +17,6 @@ menu = {
     },
     'edit-candidate': {
         'text': 'Edit candidate',
-        'url': ''
+        'url': '/index'
     }
 }
