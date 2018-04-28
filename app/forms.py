@@ -4,7 +4,7 @@ from wtforms.validators import DataRequired
 
 
 class AddCandidateForm(FlaskForm):
-    cnp = StringField('CNP', validators=[DataRequired()])
+    cnp = IntegerField('CNP', validators=[DataRequired()])
     first_name = StringField('First name', validators=[DataRequired()])
     surname = StringField('Surname', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired()])

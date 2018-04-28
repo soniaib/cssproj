@@ -4,6 +4,7 @@
 
 <h2>Submit candidate</h2>
 <form action="" method="post">
+
     {{ form.hidden_tag() }}
     {% for field in form %}
         {% if field.type != "SubmitField"%}
@@ -18,7 +19,6 @@
     {% endfor %}
     {{ form.submit.label }} <br>
     {{ form.submit }}
-
 </form>
 
 {% endblock %}
