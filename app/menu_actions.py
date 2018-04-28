@@ -18,5 +18,9 @@ menu = {
     'edit-candidate': {
         'text': 'Edit candidate',
         'url': '/index'
+    },
+    'admission-results': {
+        'text': 'Admission Results',
+        'url': '/admission_results'
     }
 }

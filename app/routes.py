@@ -1,7 +1,7 @@
 from app import app, menu_actions
 from flask import render_template, flash, redirect
 from app.forms import AddCandidateForm
-
+from app.utils import get_results
 
 @app.route('/')
 @app.route('/index')
@@ -24,3 +24,14 @@ def add_candidate():
         title='Add candidate',
         form=form,
         actions=actions)
+
+@app.route('/admission_results')
+def admission_results():
+    actions = menu_actions.menu
+    results = get_results()
+    #results = [{'name': 'Sonia', 'status': 'Accepted'}, {'name': 'John Doe', 'status': 'Rejected'}]
+    return render_template(
+        'admission_results.html',
+        title='Admission Results',
+        actions=actions,
+        results=results)
