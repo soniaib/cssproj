@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Candidate Results</h2>
+
+<table>
+{%for item in results %}
+<tr>
+	<td>{{ item.name }}</td>
+	<td>{{ item.status }}</td>
+</tr>
+{% endfor %}
+</table>
+
+{% endblock %}
