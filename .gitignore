@@ -1,0 +1,6 @@
+# Created by .ignore support plugin (hsz.mobi)
+
+admission.pyc
+*.pyc
+*.idea
+projenv
