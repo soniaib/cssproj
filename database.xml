@@ -1,0 +1,69 @@
+ <specialization>
+        <id>1</id>
+        <name>Software Engineering</name>
+        <capacity>30</capacity>
+ </specialization>
+ <specialization>
+        <id>2</id>
+        <name>Computational Optimization</name>
+        <capacity>20</capacity>
+ </specialization>
+ <specialization>
+        <id>3</id>
+        <name>Computational Linguistics and Artificial Intelligence</name>
+        <capacity>15</capacity>
+ </specialization>
+ <specialization>
+        <id>4</id>
+        <name>Distributed Computing</name>
+        <capacity>10</capacity>
+ </specialization>
+ <candidate>
+        <cnp>12345</cnp>
+        <first_name>Person1</first_name>
+        <surname>Still me person 1</surname>
+        <email>person1@yahoo.com</email>
+        <info_grade>9</info_grade>
+        <math_grade>7.6</math_grade>
+        <high_school_avg_grade>8.7</high_school_avg_grade>
+        <admission_grade>8.5</admission_grade>
+        <first_option>1</first_option>
+        <second_option>3</second_option>
+ </candidate>
+ <repartition>
+        <candidate_cnp>12345</candidate_cnp>
+        <specialization_id>1</specialization_id>
+        <allocation>FREE</allocation>
+ </repartition>
+<specialization>
+	<id>6</p2>
+ 	<name>new specialization</name>
+ 	<capacity>56</capacity>
+</specialization> 
+<specialization>
+	<id>7</p2>
+ 	<name>new specialization</name>
+ 	<capacity>56</capacity>
+</specialization> 
+<specialization>
+	<id>8</id>
+	<name>new specialization name</name>
+	<capacity>1000</capacity>
+</specialization>
+<candidate>
+	<cnp>987654321</cnp>
+	<first_name>new student in town</first_name>
+	<surname>updated name</surname>
+	<email>new@email.com</email>
+	<info_grade>6.7</info_grade>
+	<math_grade>8.9</math_grade>
+	<high_school_avg_grade>9.5</high_school_avg_grade>
+	<admission_grade>7.8</admission_grade>
+	<first_option>2</first_option>
+	<second_option>1</second_option>
+</candidate>
+<repartition>
+	<candidate_cnp>987654321</candidate_cnp>
+	<allocation>REJECTED</allocation>
+	<specialization_id>-1</specialization_id>
+</repartition>
