@@ -57,6 +57,23 @@
 	<first_option>1</first_option>
 	<second_option>3</second_option>
 </candidate>
+<candidate>
+	<cnp>12345677899</cnp>
+	<first_name>Test</first_name>
+	<surname>Testing</surname>
+	<email>test@test.tst</email>
+	<info_grade>10.0</info_grade>
+	<math_grade>9.0</math_grade>
+	<high_school_avg_grade>9.0</high_school_avg_grade>
+	<admission_grade>9.0</admission_grade>
+	<first_option>1</first_option>
+	<second_option>3</second_option>
+</candidate>
+ <repartition>
+        <candidate_cnp>12345677899</candidate_cnp>
+        <specialization_id>1</specialization_id>
+        <allocation>REJECTED</allocation>
+ </repartition>
 <specialization>
 	<id>8</id>
 	<name>new specialization name</name>
