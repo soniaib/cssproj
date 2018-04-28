@@ -1,15 +1,16 @@
 from enum import Enum
 
 
-# todo : current version does not cope with empty/None values for class attributes
+# todo : current version does not cope with empty/None values for class
+# attributes
 
 
 def build_begin_tag(tag_name):
-    return "<"+tag_name+">"
+    return "<" + tag_name + ">"
 
 
 def build_end_tag(tag_name):
-    return "</"+tag_name+">"
+    return "</" + tag_name + ">"
 
 
 def get_begin_tag(current_line):
@@ -43,13 +44,23 @@ class Specialization:
     capacity_tag = "capacity"
 
     def print(self):
-        print(repr(self.identifier) + ' - ' + self.name + ' - ' + repr(self.capacity))
+        print(
+            repr(
+                self.identifier) +
+            ' - ' +
+            self.name +
+            ' - ' +
+            repr(
+                self.capacity))
 
     def to_xml(self):
         result = build_begin_tag(Specialization.table_tag) + "\n"
-        result += "\t" + build_begin_tag(Specialization.id_tag) + repr(self.identifier) + build_end_tag(Specialization.id_tag) + "\n"
-        result += "\t" + build_begin_tag(Specialization.name_tag) + self.name + build_end_tag(Specialization.name_tag) + "\n"
-        result += "\t" + build_begin_tag(Specialization.capacity_tag) + repr(self.capacity) + build_end_tag(Specialization.capacity_tag) + "\n"
+        result += "\t" + build_begin_tag(Specialization.id_tag) + repr(
+            self.identifier) + build_end_tag(Specialization.id_tag) + "\n"
+        result += "\t" + build_begin_tag(Specialization.name_tag) + \
+            self.name + build_end_tag(Specialization.name_tag) + "\n"
+        result += "\t" + build_begin_tag(Specialization.capacity_tag) + repr(
+            self.capacity) + build_end_tag(Specialization.capacity_tag) + "\n"
         result += build_end_tag(Specialization.table_tag) + "\n"
         return result
 
@@ -196,21 +207,56 @@ class Candidate:
     second_option_tag = "second_option"
 
     def print(self):
-        print(repr(self.cnp) + ' - ' + self.first_name + ' - ' + self.surname + ' - ' + self.email + ' - ' + repr(self.info_grade) + ' - ' + repr(self.math_grade)
-               + ' - ' + repr(self.high_school_avg_grade) + ' - ' + repr(self.admission_grade) + ' - ' + repr(self.first_option) + ' - ' + repr(self.second_option))
+        print(
+            repr(
+                self.cnp) +
+            ' - ' +
+            self.first_name +
+            ' - ' +
+            self.surname +
+            ' - ' +
+            self.email +
+            ' - ' +
+            repr(
+                self.info_grade) +
+            ' - ' +
+            repr(
+                self.math_grade) +
+            ' - ' +
+            repr(
+                self.high_school_avg_grade) +
+            ' - ' +
+            repr(
+                self.admission_grade) +
+            ' - ' +
+            repr(
+                self.first_option) +
+            ' - ' +
+            repr(
+                self.second_option))
 
     def to_xml(self):
         result = build_begin_tag(Candidate.table_tag) + "\n"
-        result += "\t" + build_begin_tag(Candidate.cnp_tag) + repr(self.cnp) + build_end_tag(Candidate.cnp_tag) + "\n"
-        result += "\t" + build_begin_tag(Candidate.first_name_tag) + self.first_name + build_end_tag(Candidate.first_name_tag) + "\n"
-        result += "\t" + build_begin_tag(Candidate.surname_tag) + self.surname + build_end_tag(Candidate.surname_tag) + "\n"
-        result += "\t" + build_begin_tag(Candidate.email_tag) + self.email + build_end_tag(Candidate.email_tag) + "\n"
-        result += "\t" + build_begin_tag(Candidate.info_grade_tag) + repr(self.info_grade) + build_end_tag(Candidate.info_grade_tag) + "\n"
-        result += "\t" + build_begin_tag(Candidate.math_grade_tag) + repr(self.math_grade) + build_end_tag(Candidate.math_grade_tag) + "\n"
-        result += "\t" + build_begin_tag(Candidate.high_school_avg_grade_tag) + repr(self.high_school_avg_grade) + build_end_tag(Candidate.high_school_avg_grade_tag) + "\n"
-        result += "\t" + build_begin_tag(Candidate.admission_grade_tag) + repr(self.admission_grade) + build_end_tag(Candidate.admission_grade_tag) + "\n"
-        result += "\t" + build_begin_tag(Candidate.first_option_tag) + repr(self.first_option) + build_end_tag(Candidate.first_option_tag) + "\n"
-        result += "\t" + build_begin_tag(Candidate.second_option_tag) + repr(self.second_option) + build_end_tag(Candidate.second_option_tag) + "\n"
+        result += "\t" + build_begin_tag(Candidate.cnp_tag) + repr(
+            self.cnp) + build_end_tag(Candidate.cnp_tag) + "\n"
+        result += "\t" + build_begin_tag(Candidate.first_name_tag) + \
+            self.first_name + build_end_tag(Candidate.first_name_tag) + "\n"
+        result += "\t" + build_begin_tag(Candidate.surname_tag) + \
+            self.surname + build_end_tag(Candidate.surname_tag) + "\n"
+        result += "\t" + build_begin_tag(Candidate.email_tag) + \
+            self.email + build_end_tag(Candidate.email_tag) + "\n"
+        result += "\t" + build_begin_tag(Candidate.info_grade_tag) + repr(
+            self.info_grade) + build_end_tag(Candidate.info_grade_tag) + "\n"
+        result += "\t" + build_begin_tag(Candidate.math_grade_tag) + repr(
+            self.math_grade) + build_end_tag(Candidate.math_grade_tag) + "\n"
+        result += "\t" + build_begin_tag(Candidate.high_school_avg_grade_tag) + repr(
+            self.high_school_avg_grade) + build_end_tag(Candidate.high_school_avg_grade_tag) + "\n"
+        result += "\t" + build_begin_tag(Candidate.admission_grade_tag) + repr(
+            self.admission_grade) + build_end_tag(Candidate.admission_grade_tag) + "\n"
+        result += "\t" + build_begin_tag(Candidate.first_option_tag) + repr(
+            self.first_option) + build_end_tag(Candidate.first_option_tag) + "\n"
+        result += "\t" + build_begin_tag(Candidate.second_option_tag) + repr(
+            self.second_option) + build_end_tag(Candidate.second_option_tag) + "\n"
         result += build_end_tag(Candidate.table_tag) + "\n"
         return result
 
@@ -397,13 +443,23 @@ class AdmissionResult:
     allocation_tag = "allocation"
 
     def print(self):
-        print(repr(self.candidate_cnp) +  ' - ' + repr(self.specialization_id) + ' - ' + self.allocation.name)
+        print(
+            repr(
+                self.candidate_cnp) +
+            ' - ' +
+            repr(
+                self.specialization_id) +
+            ' - ' +
+            self.allocation.name)
 
     def to_xml(self):
         result = build_begin_tag(AdmissionResult.table_tag) + "\n"
-        result += "\t" + build_begin_tag(AdmissionResult.candidate_cnp_tag) + repr(self.candidate_cnp) + build_end_tag(AdmissionResult.candidate_cnp_tag) + "\n"
-        result += "\t" + build_begin_tag(AdmissionResult.allocation_tag) + self.allocation.name + build_end_tag(AdmissionResult.allocation_tag) + "\n"
-        result += "\t" + build_begin_tag(AdmissionResult.specialization_id_tag) + repr(self.specialization_id) + build_end_tag(AdmissionResult.specialization_id_tag) + "\n"
+        result += "\t" + build_begin_tag(AdmissionResult.candidate_cnp_tag) + repr(
+            self.candidate_cnp) + build_end_tag(AdmissionResult.candidate_cnp_tag) + "\n"
+        result += "\t" + build_begin_tag(AdmissionResult.allocation_tag) + \
+            self.allocation.name + build_end_tag(AdmissionResult.allocation_tag) + "\n"
+        result += "\t" + build_begin_tag(AdmissionResult.specialization_id_tag) + repr(
+            self.specialization_id) + build_end_tag(AdmissionResult.specialization_id_tag) + "\n"
         result += build_end_tag(AdmissionResult.table_tag) + "\n"
         return result
 
@@ -521,4 +577,3 @@ admiss_result.specialization_id = -1
 
 
 update_admission_result_for_candidate(admiss_result)
-

@@ -1,14 +1,22 @@
-frontpage = {
-    'students-list-download': {
-        'text':'Download the list of students',
-        'url':''
+menu = {
+    'home':{
+        'text':'Home',
+        'url':'/index'
     },
-    'add-student':{
-        'text':'Add student to list',
-        'url':''
+    'candidates-list-download': {
+        'text': 'Download the list of candidates',
+        'url': ''
     },
-    'upload list of students':{
-        'text':'Upload a list of students',
-        'url':''
+    'upload list of candidates': {
+        'text': 'Upload a list of candidates',
+        'url': ''
+    },
+    'add-candidate': {
+        'text': 'Add candidate to list',
+        'url': '/add_candidate'
+    },
+    'edit-candidate': {
+        'text': 'Edit candidate',
+        'url': ''
     }
 }

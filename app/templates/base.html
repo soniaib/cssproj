@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>UAIC Student admission</title>
+    </head>
+    <body>
+        <div>Choose actions:
+            {% for key in actions.keys()%}
+                <a href="{{actions[key]['url']}}"> {{actions[key]['text']}}</a> &#124;
+            {% endfor %}
+        </div>
+        <hr>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </body>
+</html>
