@@ -4,5 +4,17 @@
     </head>
     <body>
         <h1>Hello, {{ teststr }}!</h1>
+        <table>
+            <tr>
+                <td>Choose what to do:</td>
+            </tr>
+            {% for key in actions.keys()%}
+            <tr>
+                <td>
+                    <a href = "{{actions[key]['url']}}"> {{actions[key]['text']}} </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
     </body>
 </html>
