@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Candidates List</h2>
+
+<table>
+<thead>
+<tr>
+<th>ID</th><th>Name</th><th>Capacity</th>
+</tr>
+</thead>
+<tbody>
+{%for item in specializations %}
+<tr>
+	<td>{{ item.identifier }}</td>
+	<td>{{ item.name }}</td>
+	<td>{{ item.capacity }}</td>
+</tr>
+</tbody>
+{% endfor %}
+</table>
+
+{% endblock %}

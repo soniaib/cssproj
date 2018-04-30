@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Candidates List</h2>
+
+<table>
+<thead>
+<tr>
+<th>CNP</th><th>First Name</th><th>Last Name</th><th>CS Grade</th><th>Math Grade</th><th>Highschool AVG</th><th>Admission Test Grade</th><th>Option 1</th><th>Option 2</th>
+</tr>
+</thead>
+<tbody>
+{%for item in candidates %}
+<tr>
+	<td>{{ item.cnp }}</td>
+	<td>{{ item.first_name }}</td>
+	<td>{{ item.surname }}</td>
+	<td>{{ item.info_grade }}</td>
+	<td>{{ item.math_grade }}</td>
+	<td>{{ item.high_school_avg_grade }}</td>
+	<td>{{ item.admission_grade }}</td>
+	<td>{{ item.first_option }}</td>
+	<td>{{ item.second_option }}</td>
+</tr>
+</tbody>
+{% endfor %}
+</table>
+
+{% endblock %}
