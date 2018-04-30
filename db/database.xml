@@ -30,11 +30,6 @@
         <first_option>1</first_option>
         <second_option>3</second_option>
  </candidate>
- <repartition>
-        <candidate_cnp>12345</candidate_cnp>
-        <specialization_id>1</specialization_id>
-        <allocation>FREE</allocation>
- </repartition>
 <specialization>
 	<id>6</p2>
  	<name>new specialization</name>
@@ -57,6 +52,18 @@
 	<first_option>1</first_option>
 	<second_option>3</second_option>
 </candidate>
+<candidate>
+	<cnp>12345677899</cnp>
+	<first_name>Test</first_name>
+	<surname>Testing</surname>
+	<email>test@test.tst</email>
+	<info_grade>10.0</info_grade>
+	<math_grade>9.0</math_grade>
+	<high_school_avg_grade>9.0</high_school_avg_grade>
+	<admission_grade>9.0</admission_grade>
+	<first_option>1</first_option>
+	<second_option>3</second_option>
+</candidate>
 <specialization>
 	<id>8</id>
 	<name>new specialization name</name>
@@ -74,8 +81,81 @@
 	<first_option>2</first_option>
 	<second_option>1</second_option>
 </candidate>
+<candidate>
+	<cnp>123123</cnp>
+	<first_name>Asdf</first_name>
+	<surname>Asdf2</surname>
+	<email>asdf@asdf.sd</email>
+	<info_grade>8.0</info_grade>
+	<math_grade>7.0</math_grade>
+	<high_school_avg_grade>6.0</high_school_avg_grade>
+	<admission_grade>6.0</admission_grade>
+	<first_option>1</first_option>
+	<second_option>4</second_option>
+</candidate>
+<candidate>
+	<cnp>123412344</cnp>
+	<first_name>asdfg</first_name>
+	<surname>asdfg2</surname>
+	<email>asd@asd.asd</email>
+	<info_grade>8.0</info_grade>
+	<math_grade>8.0</math_grade>
+	<high_school_avg_grade>8.0</high_school_avg_grade>
+	<admission_grade>8.0</admission_grade>
+	<first_option>2</first_option>
+	<second_option>4</second_option>
+</candidate>
+<candidate>
+	<cnp>555555555</cnp>
+	<first_name>John</first_name>
+	<surname>Johnson</surname>
+	<email>jj@email.com</email>
+	<info_grade>5.0</info_grade>
+	<math_grade>5.0</math_grade>
+	<high_school_avg_grade>5.0</high_school_avg_grade>
+	<admission_grade>3.0</admission_grade>
+	<first_option>3</first_option>
+	<second_option>4</second_option>
+</candidate>
+<repartition>
+	<candidate_cnp>12345677899</candidate_cnp>
+	<final_score>9.3</final_score>
+	<allocation>FREE</allocation>
+	<specialization_id>1</specialization_id>
+</repartition>
+<repartition>
+	<candidate_cnp>2890420574799</candidate_cnp>
+	<final_score>9.146</final_score>
+	<allocation>FREE</allocation>
+	<specialization_id>1</specialization_id>
+</repartition>
+<repartition>
+	<candidate_cnp>12345</candidate_cnp>
+	<final_score>8.69</final_score>
+	<allocation>FREE</allocation>
+	<specialization_id>1</specialization_id>
+</repartition>
+<repartition>
+	<candidate_cnp>123123</candidate_cnp>
+	<final_score>6.6</final_score>
+	<allocation>FREE</allocation>
+	<specialization_id>1</specialization_id>
+</repartition>
 <repartition>
 	<candidate_cnp>987654321</candidate_cnp>
+	<final_score>8.47</final_score>
+	<allocation>FREE</allocation>
+	<specialization_id>2</specialization_id>
+</repartition>
+<repartition>
+	<candidate_cnp>123412344</candidate_cnp>
+	<final_score>8.0</final_score>
+	<allocation>FREE</allocation>
+	<specialization_id>2</specialization_id>
+</repartition>
+<repartition>
+	<candidate_cnp>555555555</candidate_cnp>
+	<final_score>4.0</final_score>
 	<allocation>REJECTED</allocation>
-	<specialization_id>-1</specialization_id>
+	<specialization_id>3</specialization_id>
 </repartition>

@@ -34,6 +34,7 @@
         <candidate_cnp>12345</candidate_cnp>
         <specialization_id>1</specialization_id>
         <allocation>FREE</allocation>
+		<final_score>5</final_score>
  </repartition>
 <specialization>
 	<id>6</p2>
@@ -66,4 +67,5 @@
 	<candidate_cnp>987654321</candidate_cnp>
 	<allocation>REJECTED</allocation>
 	<specialization_id>-1</specialization_id>
+	<final_score>5</final_score>
 </repartition>

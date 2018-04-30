@@ -86,10 +86,10 @@ def get_all_specializations():
         return result
 
 
-print("get all specializations")
-all_specializations = get_all_specializations()
-for x in all_specializations:
-    x.print()
+#print("get all specializations")
+#all_specializations = get_all_specializations()
+#for x in all_specializations:
+#    x.print()
 
 
 def get_specialization_by_id(id):
@@ -113,10 +113,10 @@ def get_specialization_by_id(id):
         return None
 
 
-print("\nget spec by id")
-found_by_id = get_specialization_by_id(6)
-found_by_id.print()
-print(found_by_id.to_xml())
+#print("\nget spec by id")
+#found_by_id = get_specialization_by_id(6)
+#found_by_id.print()
+#print(found_by_id.to_xml())
 
 
 def delete_specialization_by_id(categ_id):
@@ -138,8 +138,8 @@ def delete_specialization_by_id(categ_id):
         f.truncate()
 
 
-print("\ndelete specialization by id")
-delete_specialization_by_id(5)
+#print("\ndelete specialization by id")
+#delete_specialization_by_id(5)
 
 
 def save_specialization(category):
@@ -152,13 +152,13 @@ def save_specialization(category):
         return 'ALREADY_EXISTING \n'
 
 
-print("\nsave new specialization")
-toSave = Specialization()
-toSave.capacity = 92
-toSave.name = "new specialization"
-toSave.identifier = 8
+#print("\nsave new specialization")
+#toSave = Specialization()
+#toSave.capacity = 92
+#toSave.name = "new specialization"
+#toSave.identifier = 8
 
-save_specialization(toSave)
+#save_specialization(toSave)
 
 
 def update_specialization(category):
@@ -171,12 +171,12 @@ def update_specialization(category):
         return "OK"
 
 
-print("\nupdate specialization")
-toUpdate = Specialization()
-toUpdate.capacity = 1000
-toUpdate.name = "new specialization name"
-toUpdate.identifier = 8
-update_specialization(toUpdate)
+#print("\nupdate specialization")
+#toUpdate = Specialization()
+#toUpdate.capacity = 1000
+#toUpdate.name = "new specialization name"
+#toUpdate.identifier = 8
+#update_specialization(toUpdate)
 
 
 # student
@@ -303,10 +303,10 @@ def get_all_candidates():
         return result
 
 
-print("\nget_all_candidates")
-all_candidates = get_all_candidates()
-for x in all_candidates:
-    x.print()
+#print("\nget_all_candidates")
+#all_candidates = get_all_candidates()
+#for x in all_candidates:
+#    x.print()
 
 
 def get_candidate_by_id(cnp_identifier):
@@ -351,10 +351,10 @@ def get_candidate_by_id(cnp_identifier):
         return None
 
 
-print("\nget candidate by cnp")
-found_by_id = get_candidate_by_id(12345)
-found_by_id.print()
-print(found_by_id.to_xml())
+#print("\nget candidate by cnp")
+#found_by_id = get_candidate_by_id(12345)
+#found_by_id.print()
+#print(found_by_id.to_xml())
 
 
 def delete_candidate_by_id(cnp_identifier):
@@ -377,8 +377,8 @@ def delete_candidate_by_id(cnp_identifier):
         f.truncate()
 
 
-print("\ndelete candidate by cnp")
-delete_candidate_by_id(123456)
+#print("\ndelete candidate by cnp")
+#delete_candidate_by_id(123456)
 
 
 def save_candidate(new_candidate):
@@ -391,21 +391,22 @@ def save_candidate(new_candidate):
         return 'ALREADY_EXISTING \n'
 
 
-print("\nsave new_candidate")
-new_candidate = Candidate()
-new_candidate.cnp = 987654321
-new_candidate.first_name = "new student in town"
-new_candidate.surname = " mhm "
-new_candidate.email = "new@email.com"
-new_candidate.info_grade = 6.7
-new_candidate.math_grade = 8.9
-new_candidate.high_school_avg_grade = 9.5
-new_candidate.admission_grade = 7.8
-new_candidate.first_option = 2
-new_candidate.second_option = 1
+
+#print("\nsave new_candidate")
+#new_candidate = Candidate()
+#new_candidate.cnp = 987654321
+#new_candidate.first_name = "new student in town"
+#new_candidate.surname = " mhm "
+#new_candidate.email = "new@email.com"
+#new_candidate.info_grade = 6.7
+#new_candidate.math_grade = 8.9
+#new_candidate.high_school_avg_grade = 9.5
+#new_candidate.admission_grade = 7.8
+#new_candidate.first_option = 2
+#new_candidate.second_option = 1
 
 
-save_candidate(new_candidate)
+#save_candidate(new_candidate)
 
 
 def update_candidate(candidate_to_update):
@@ -418,9 +419,9 @@ def update_candidate(candidate_to_update):
         return "OK"
 
 
-print("\nupdate candidate")
-new_candidate.surname = "updated name"
-update_candidate(new_candidate)
+#print("\nupdate candidate")
+#new_candidate.surname = "updated name"
+#update_candidate(new_candidate)
 
 
 # Repartition
@@ -430,15 +431,18 @@ class AdmissionStatus(Enum):
     FEE = "With fee"
     FREE = "Budget"
     REJECTED = "Rejected"
+    UNPROCESSED = "None"
 
 
 class AdmissionResult:
     candidate_cnp = 0
+    final_score = 0.0
     specialization_id = 0  # add -1 with Rejected for no repartition
-    allocation = AdmissionStatus.REJECTED
+    allocation = AdmissionStatus.UNPROCESSED
 
     table_tag = "repartition"
     candidate_cnp_tag = "candidate_cnp"
+    final_score_tag = "final_score"
     specialization_id_tag = "specialization_id"
     allocation_tag = "allocation"
 
@@ -449,6 +453,9 @@ class AdmissionResult:
             ' - ' +
             repr(
                 self.specialization_id) +
+			' - ' +
+            repr(
+                self.final_score) +
             ' - ' +
             self.allocation.name)
 
@@ -456,6 +463,8 @@ class AdmissionResult:
         result = build_begin_tag(AdmissionResult.table_tag) + "\n"
         result += "\t" + build_begin_tag(AdmissionResult.candidate_cnp_tag) + repr(
             self.candidate_cnp) + build_end_tag(AdmissionResult.candidate_cnp_tag) + "\n"
+        result += "\t" + build_begin_tag(AdmissionResult.final_score_tag) + repr(
+            self.final_score) + build_end_tag(AdmissionResult.final_score_tag) + "\n"
         result += "\t" + build_begin_tag(AdmissionResult.allocation_tag) + \
             self.allocation.name + build_end_tag(AdmissionResult.allocation_tag) + "\n"
         result += "\t" + build_begin_tag(AdmissionResult.specialization_id_tag) + repr(
@@ -464,7 +473,7 @@ class AdmissionResult:
         return result
 
 
-def get_admission_results():
+def get_admission_results(type):
     with open(config.DB_FILE_PATH, "r+") as f:
         new_f = f.readlines()
         result = []
@@ -476,8 +485,15 @@ def get_admission_results():
                 value = get_tag_value(line)
                 found.candidate_cnp = int(value)
             if tag == AdmissionResult.specialization_id_tag:
+                if type == 1:
+                    value = get_tag_value(line)
+                    found.specialization_id = get_specialization_by_id(int(value)).name
+                else:
+                    value = get_tag_value(line)
+                    found.specialization_id = int(value)
+            if tag == AdmissionResult.final_score_tag:
                 value = get_tag_value(line)
-                found.specialization_id = int(value)
+                found.final_score = float(value)
             if tag == AdmissionResult.allocation_tag:
                 value = get_tag_value(line)
                 found.allocation = getattr(AdmissionStatus, value)
@@ -485,10 +501,10 @@ def get_admission_results():
         return result
 
 
-print("\nget_admission_results")
-all_results = get_admission_results()
-for x in all_results:
-    x.print()
+#print("\nget_admission_results")
+#all_results = get_admission_results()
+#for x in all_results:
+#    x.print()
 
 
 def get_admission_result_for_candidate(candidate_cnp):
@@ -501,6 +517,9 @@ def get_admission_result_for_candidate(candidate_cnp):
             if tag == AdmissionResult.candidate_cnp_tag:
                 value = get_tag_value(line)
                 found.candidate_cnp = int(value)
+            if tag == AdmissionResult.final_score_tag:
+                value = get_tag_value(line)
+                found.final_score = float(value)
             if tag == AdmissionResult.specialization_id_tag:
                 value = get_tag_value(line)
                 found.specialization_id = int(value)
@@ -512,10 +531,10 @@ def get_admission_result_for_candidate(candidate_cnp):
         return None
 
 
-print("\nget_admission_result_for_candidate")
-found_by_id = get_admission_result_for_candidate(12345)
-found_by_id.print()
-print(found_by_id.to_xml())
+#print("\nget_admission_result_for_candidate")
+#found_by_id = get_admission_result_for_candidate(12345)
+#found_by_id.print()
+#print(found_by_id.to_xml())
 
 
 def delete_admission_result_for_candidate(candidate_cnp):
@@ -530,34 +549,34 @@ def delete_admission_result_for_candidate(candidate_cnp):
                 new_line = new_f[count + 1]
                 id_line = get_tag_value(new_line)
                 if int(id_line) == candidate_cnp:
-                    count += 5
+                    count += 6 # 5
                     continue
             f.write(new_f[count])
             count += 1
         f.truncate()
 
 
-print("\ndelete admission result for candidate by cnp")
-delete_admission_result_for_candidate(987654321)
+#print("\ndelete admission result for candidate by cnp")
+#delete_admission_result_for_candidate(987654321)
 
 
 def save_admission_result_for_candidate(adm_result):
     existing = get_admission_result_for_candidate(adm_result.candidate_cnp)
     if existing is None:
         with open(config.DB_FILE_PATH, "a") as f:
-            f.write(adm_result.to_xml())
-        return 'OK'
+            f.write(adm_result.to_xml())		
+        return "OK"
     else:
-        return 'ALREADY_EXISTING \n'
+        return update_admission_result_for_candidate(adm_result)
 
 
-print("\nsave admission_result")
-admiss_result = AdmissionResult()
-admiss_result.candidate_cnp = 987654321
-admiss_result.allocation = AdmissionStatus.FEE
-admiss_result.specialization_id = 4
+#print("\nsave admission_result")
+#admiss_result = AdmissionResult()
+#admiss_result.candidate_cnp = 987654321
+#admiss_result.allocation = AdmissionStatus.FEE
+#admiss_result.specialization_id = 4
 
-save_admission_result_for_candidate(admiss_result)
+#save_admission_result_for_candidate(admiss_result)
 
 
 def update_admission_result_for_candidate(adm_result):
@@ -571,9 +590,9 @@ def update_admission_result_for_candidate(adm_result):
         return "OK"
 
 
-print("\nupdate admission_result")
-admiss_result.allocation = AdmissionStatus.REJECTED
-admiss_result.specialization_id = -1
+#print("\nupdate admission_result")
+#admiss_result.allocation = AdmissionStatus.REJECTED
+#admiss_result.specialization_id = -1
 
 
-update_admission_result_for_candidate(admiss_result)
+#update_admission_result_for_candidate(admiss_result)
