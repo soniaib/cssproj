@@ -2,14 +2,48 @@
 
 {% block content %}
 
+<style>
+table {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table td, table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+table tr:nth-child(even){background-color: #f2f2f2;}
+
+table tr:hover {background-color: #ddd;}
+
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: rgb(65,105,225);
+    color: white;
+}
+</style>
+
 <h2>Candidate Results</h2>
 
 <table>
+<thead>
+<tr>
+<th>CNP</th><th>Final Score</th><th>Specialization</th><th>Admission Status</th>
+</tr>
+</thead>
+<tbody>
 {%for item in results %}
 <tr>
 	<td>{{ item.candidate_cnp }}</td>
+	<td>{{ item.final_score }}</td>
+	<td>{{ item.specialization_id }}</td>
 	<td>{{ item.allocation }}</td>
 </tr>
+</tbody>
 {% endfor %}
 </table>
 

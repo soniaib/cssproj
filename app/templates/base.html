@@ -1,8 +1,12 @@
 <html>
     <head>
-        <title>UAIC Student admission</title>
+        <title>UAIC Student Admission</title>
+		<style>
+			.container{ max-width: 1024px; display:block; margin: 0px auto; text-align: center; }
+		</style>
     </head>
     <body>
+		<div class="container">
         <div>Menu:
             {% for key in actions.keys()%}
                 <a href="{{actions[key]['url']}}"> {{actions[key]['text']}}</a> &#124;
@@ -20,5 +24,6 @@
         {% endwith %}
 
         {% block content %}{% endblock %}
+        </div>
     </body>
 </html>

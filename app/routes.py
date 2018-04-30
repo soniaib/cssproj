@@ -2,6 +2,7 @@ from app import app, menu_actions
 from flask import render_template, flash, redirect
 from app.forms import AddCandidateForm
 from db import DatabaseController as DbC
+from utils import set_results, get_results
 
 @app.route('/')
 @app.route('/index')
@@ -40,7 +41,8 @@ def add_candidate():
 @app.route('/admission_results')
 def admission_results():
     actions = menu_actions.menu
-    results = DbC.get_admission_results()
+    set_results()
+    results = get_results()
     return render_template(
         'admission_results.html',
         title='Admission Results',
