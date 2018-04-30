@@ -261,7 +261,7 @@ class Candidate:
         return result
 
 
-def get_all_candidates():
+def get_all_candidates(type=0):
     with open(config.DB_FILE_PATH, "r+") as f:
         new_f = f.readlines()
         result = []
@@ -294,11 +294,19 @@ def get_all_candidates():
                 value = get_tag_value(line)
                 found.admission_grade = float(value)
             if tag == Candidate.first_option_tag:
-                value = get_tag_value(line)
-                found.first_option = int(value)
+                if type == 1:
+                    value = get_tag_value(line)
+                    found.first_option = get_specialization_by_id(int(value)).name
+                else:
+                    value = get_tag_value(line)
+                    found.first_option = int(value)
             if tag == Candidate.second_option_tag:
-                value = get_tag_value(line)
-                found.second_option = int(value)
+                if type == 1:
+                    value = get_tag_value(line)
+                    found.second_option = get_specialization_by_id(int(value)).name
+                else:
+                    value = get_tag_value(line)
+                    found.second_option = int(value)
                 result.append(found)
         return result
 
@@ -473,7 +481,7 @@ class AdmissionResult:
         return result
 
 
-def get_admission_results(type):
+def get_admission_results(type=0):
     with open(config.DB_FILE_PATH, "r+") as f:
         new_f = f.readlines()
         result = []

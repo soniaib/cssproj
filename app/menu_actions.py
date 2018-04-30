@@ -3,21 +3,17 @@ menu = {
         'text': 'Home',
         'url': '/index'
     },
-    'candidates-list-download': {
-        'text': 'Download the list of candidates',
-        'url': '/index'
+    'candidates-list': {
+        'text': 'View Candidates',
+        'url': '/candidates'
     },
-    'upload list of candidates': {
-        'text': 'Upload a list of candidates',
-        'url': '/index'
+	'specialization-list': {
+        'text': 'View Specializations',
+        'url': '/specializations'
     },
     'add-candidate': {
         'text': 'Add candidate to list',
         'url': '/add_candidate'
-    },
-    'edit-candidate': {
-        'text': 'Edit candidate',
-        'url': '/index'
     },
     'admission-results': {
         'text': 'Admission Results',
