@@ -4,6 +4,32 @@ def get_results():
 	all_results = DbC.get_admission_results(1)
 	return all_results
 
+def calculate_final_score_for_candidate (item):
+	final_score = max(item.info_grade, item.math_grade)*0.3 + item.high_school_avg_grade*0.2 + 0.5*item.admission_grade
+	return final_score
+
+def set_admision_status (item,specs,opt_arr):
+	if item.final_score < 5:
+		allocation = DbC.AdmissionStatus.REJECTED
+		return allocation
+	if specs[item.specialization_id]["free_spots"] > 2:
+		allocation = DbC.AdmissionStatus.FREE
+		specs[item.specialization_id]["free_spots"] -= 1
+	elif specs[item.specialization_id]["free_spots"] > 0:
+		allocation = DbC.AdmissionStatus.FEE
+		specs[item.specialization_id]["free_spots"] -= 1
+	else:
+		item.specialization_id = opt_arr[str(item.candidate_cnp)]["second_option"]
+		if specs[item.specialization_id]["free_spots"] > 2:
+			allocation = DbC.AdmissionStatus.FREE
+			specs[item.specialization_id]["free_spots"] -= 1
+		elif specs[item.specialization_id]["free_spots"] > 0:
+			allocation = DbC.AdmissionStatus.FEE
+			specs[item.specialization_id]["free_spots"] -= 1
+		else:
+			allocation = DbC.AdmissionStatus.REJECTED
+	return allocation
+
 def calculate_results():
 	specializations = DbC.get_all_specializations()
 	candidates = DbC.get_all_candidates()
@@ -21,7 +47,7 @@ def calculate_results():
 	for item in candidates:
 		r = DbC.AdmissionResult()
 		r.candidate_cnp = item.cnp
-		r.final_score = max(item.info_grade, item.math_grade)*0.3 + item.high_school_avg_grade*0.2 + 0.5*item.admission_grade
+		r.final_score = calculate_final_score_for_candidate(item)
 		r.specialization_id = item.first_option
 		r.allocation = DbC.AdmissionStatus.UNPROCESSED
 		repartition.append(r)
@@ -32,25 +58,7 @@ def calculate_results():
 	repartition = sorted(repartition, key = lambda x: (x.specialization_id, (-1)*x.final_score, ))
 	
 	for item in repartition:
-		if item.final_score < 5:
-			item.allocation = DbC.AdmissionStatus.REJECTED
-			continue
-		if specs[item.specialization_id]["free_spots"] > 2:
-			item.allocation = DbC.AdmissionStatus.FREE
-			specs[item.specialization_id]["free_spots"] -= 1
-		elif specs[item.specialization_id]["free_spots"] > 0:
-			item.allocation = DbC.AdmissionStatus.FEE
-			specs[item.specialization_id]["free_spots"] -= 1
-		else:
-			item.specialization_id = opt_arr[str(item.candidate_cnp)]["second_option"]
-			if specs[item.specialization_id]["free_spots"] > 2:
-				item.allocation = DbC.AdmissionStatus.FREE
-				specs[item.specialization_id]["free_spots"] -= 1
-			elif specs[item.specialization_id]["free_spots"] > 0:
-				item.allocation = DbC.AdmissionStatus.FEE
-				specs[item.specialization_id]["free_spots"] -= 1
-			else:
-				item.allocation = DbC.AdmissionStatus.REJECTED
+		item.allocation=set_admision_status(item,specs,opt_arr)
 		# print("Candidate CNP: ", item.candidate_cnp)
 		# print("Admission Grade: ", item.final_score)
 		# print("AdmissionResult: ", item.allocation)
