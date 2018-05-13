@@ -1,8 +1,7 @@
 from enum import Enum
 import config
 
-# todo : current version does not cope with empty/None values for class
-# attributes
+DB_FILE_PATH = config.DB_FILE_PATH
 
 
 def build_begin_tag(tag_name):
@@ -66,7 +65,7 @@ class Specialization:
 
 
 def get_all_specializations():
-    with open(config.DB_FILE_PATH, "r+") as f:
+    with open(DB_FILE_PATH, "r+") as f:
         new_f = f.readlines()
         result = []
         for line in new_f:
@@ -93,7 +92,7 @@ def get_all_specializations():
 
 
 def get_specialization_by_id(id):
-    with open(config.DB_FILE_PATH, "r+") as f:
+    with open(DB_FILE_PATH, "r+") as f:
         new_f = f.readlines()
         for line in new_f:
             tag = get_begin_tag(line)
@@ -120,7 +119,7 @@ def get_specialization_by_id(id):
 
 
 def delete_specialization_by_id(categ_id):
-    with open(config.DB_FILE_PATH, "r+") as f:
+    with open(DB_FILE_PATH, "r+") as f:
         new_f = f.readlines()
         f.seek(0)
         count = 0
@@ -145,11 +144,11 @@ def delete_specialization_by_id(categ_id):
 def save_specialization(category):
     existing = get_specialization_by_id(category.identifier)
     if existing is None:
-        with open(config.DB_FILE_PATH, "a") as f:
+        with open(DB_FILE_PATH, "a") as f:
             f.write(category.to_xml())
         return 'OK'
     else:
-        return 'ALREADY_EXISTING \n'
+        return 'ALREADY_EXISTING'
 
 
 #print("\nsave new specialization")
@@ -183,7 +182,7 @@ def update_specialization(category):
 
 
 class Candidate:
-    cnp = ' '
+    cnp = 0
     first_name = ' '
     surname = ' '
     email = ' '
@@ -262,7 +261,7 @@ class Candidate:
 
 
 def get_all_candidates(type=0):
-    with open(config.DB_FILE_PATH, "r+") as f:
+    with open(DB_FILE_PATH, "r+") as f:
         new_f = f.readlines()
         result = []
         for line in new_f:
@@ -318,7 +317,7 @@ def get_all_candidates(type=0):
 
 
 def get_candidate_by_id(cnp_identifier):
-    with open(config.DB_FILE_PATH, "r+") as f:
+    with open(DB_FILE_PATH, "r+") as f:
         new_f = f.readlines()
         for line in new_f:
             tag = get_begin_tag(line)
@@ -366,7 +365,7 @@ def get_candidate_by_id(cnp_identifier):
 
 
 def delete_candidate_by_id(cnp_identifier):
-    with open(config.DB_FILE_PATH, "r+") as f:
+    with open(DB_FILE_PATH, "r+") as f:
         new_f = f.readlines()
         f.seek(0)
         count = 0
@@ -392,11 +391,11 @@ def delete_candidate_by_id(cnp_identifier):
 def save_candidate(new_candidate):
     existing = get_candidate_by_id(new_candidate.cnp)
     if existing is None:
-        with open(config.DB_FILE_PATH, "a") as f:
+        with open(DB_FILE_PATH, "a") as f:
             f.write(new_candidate.to_xml())
         return 'OK'
     else:
-        return 'ALREADY_EXISTING \n'
+        return 'ALREADY_EXISTING'
 
 
 
@@ -482,7 +481,7 @@ class AdmissionResult:
 
 
 def get_admission_results(type=0):
-    with open(config.DB_FILE_PATH, "r+") as f:
+    with open(DB_FILE_PATH, "r+") as f:
         new_f = f.readlines()
         result = []
         for line in new_f:
@@ -516,7 +515,7 @@ def get_admission_results(type=0):
 
 
 def get_admission_result_for_candidate(candidate_cnp):
-    with open(config.DB_FILE_PATH, "r+") as f:
+    with open(DB_FILE_PATH, "r+") as f:
         new_f = f.readlines()
         for line in new_f:
             tag = get_begin_tag(line)
@@ -539,14 +538,14 @@ def get_admission_result_for_candidate(candidate_cnp):
         return None
 
 
-#print("\nget_admission_result_for_candidate")
-#found_by_id = get_admission_result_for_candidate(12345)
-#found_by_id.print()
-#print(found_by_id.to_xml())
+print("\nget_admission_result_for_candidate")
+found_by_id = get_admission_result_for_candidate(12345)
+found_by_id.print()
+print(found_by_id.to_xml())
 
 
 def delete_admission_result_for_candidate(candidate_cnp):
-    with open(config.DB_FILE_PATH, "r+") as f:
+    with open(DB_FILE_PATH, "r+") as f:
         new_f = f.readlines()
         f.seek(0)
         count = 0
@@ -571,7 +570,7 @@ def delete_admission_result_for_candidate(candidate_cnp):
 def save_admission_result_for_candidate(adm_result):
     existing = get_admission_result_for_candidate(adm_result.candidate_cnp)
     if existing is None:
-        with open(config.DB_FILE_PATH, "a") as f:
+        with open(DB_FILE_PATH, "a") as f:
             f.write(adm_result.to_xml())		
         return "OK"
     else:
@@ -593,7 +592,7 @@ def update_admission_result_for_candidate(adm_result):
         return "Entry not found"
     else:
         delete_admission_result_for_candidate(adm_result.candidate_cnp)
-        with open(config.DB_FILE_PATH, "a") as f:
+        with open(DB_FILE_PATH, "a") as f:
             f.write(adm_result.to_xml())
         return "OK"
 
