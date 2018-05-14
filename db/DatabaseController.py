@@ -537,12 +537,12 @@ def get_admission_result_for_candidate(candidate_cnp):
                     return found
         return None
 
-
-print("\nget_admission_result_for_candidate")
+"""
+printprint("\nget_admission_result_for_candidate")
 found_by_id = get_admission_result_for_candidate(12345)
 found_by_id.print()
 print(found_by_id.to_xml())
-
+"""
 
 def delete_admission_result_for_candidate(candidate_cnp):
     with open(DB_FILE_PATH, "r+") as f:
