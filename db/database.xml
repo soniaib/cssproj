@@ -114,6 +114,18 @@
 	<first_option>3</first_option>
 	<second_option>2</second_option>
 </candidate>
+<candidate>
+	<cnp>1234</cnp>
+	<first_name>test</first_name>
+	<surname>st</surname>
+	<email>serbanc94@gmail.com</email>
+	<info_grade>3.0</info_grade>
+	<math_grade>4.0</math_grade>
+	<high_school_avg_grade>5.0</high_school_avg_grade>
+	<admission_grade>7.0</admission_grade>
+	<first_option>1</first_option>
+	<second_option>2</second_option>
+</candidate>
 <repartition>
 	<candidate_cnp>12345677899</candidate_cnp>
 	<final_score>9.3</final_score>
@@ -135,6 +147,12 @@
 <repartition>
 	<candidate_cnp>123123</candidate_cnp>
 	<final_score>6.6</final_score>
+	<allocation>FREE</allocation>
+	<specialization_id>1</specialization_id>
+</repartition>
+<repartition>
+	<candidate_cnp>1234</candidate_cnp>
+	<final_score>5.7</final_score>
 	<allocation>FREE</allocation>
 	<specialization_id>1</specialization_id>
 </repartition>
@@ -162,3 +180,39 @@
 	<allocation>REJECTED</allocation>
 	<specialization_id>3</specialization_id>
 </repartition>
+<candidate>
+	<cnp>213</cnp>
+	<first_name>test</first_name>
+	<surname>test</surname>
+	<email>test@test.com</email>
+	<info_grade>4.0</info_grade>
+	<math_grade>5.0</math_grade>
+	<high_school_avg_grade>6.0</high_school_avg_grade>
+	<admission_grade>7.0</admission_grade>
+	<first_option>1</first_option>
+	<second_option>2</second_option>
+</candidate>
+<candidate>
+	<cnp>123</cnp>
+	<first_name>Serban</first_name>
+	<surname>Costandache</surname>
+	<email>test@test.com</email>
+	<info_grade>5.0</info_grade>
+	<math_grade>5.0</math_grade>
+	<high_school_avg_grade>5.0</high_school_avg_grade>
+	<admission_grade>5.0</admission_grade>
+	<first_option>2</first_option>
+	<second_option>1</second_option>
+</candidate>
+<candidate>
+	<cnp>1234567891011</cnp>
+	<first_name>test</first_name>
+	<surname>test</surname>
+	<email>test@test.com</email>
+	<info_grade>4.0</info_grade>
+	<math_grade>5.0</math_grade>
+	<high_school_avg_grade>6.0</high_school_avg_grade>
+	<admission_grade>7.0</admission_grade>
+	<first_option>1</first_option>
+	<second_option>2</second_option>
+</candidate>

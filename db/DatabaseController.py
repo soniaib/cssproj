@@ -1,5 +1,6 @@
 from enum import Enum
 import config
+import re
 
 DB_FILE_PATH = config.DB_FILE_PATH
 
@@ -603,3 +604,29 @@ def update_admission_result_for_candidate(adm_result):
 
 
 #update_admission_result_for_candidate(admiss_result)
+
+
+def save_form_data(form):
+        form_name_re = re.compile(r"^[a-z-A-Z]+$", re.IGNORECASE)
+        spec_no = len(get_all_specializations())
+        new_candidate = Candidate()
+        assert len(str(form.cnp.data)) == 13, 'CNP does not have the right length'
+        new_candidate.cnp = form.cnp.data
+        assert bool(form_name_re.match(form.first_name.data)), 'First name should only contain letters or hyphens'
+        new_candidate.first_name = form.first_name.data
+        assert bool(form_name_re.match(form.surname.data)), 'Surname should only contain letters or hyphens'
+        new_candidate.surname = form.surname.data
+        new_candidate.email = form.email.data
+        assert 4 <= form.info_grade.data <=10, 'A grade should be in [4,10] interval'
+        new_candidate.info_grade =  form.info_grade.data
+        assert 4 <= form.math_grade.data <=10, 'A grade should be in [4,10] interval'
+        new_candidate.math_grade = form.math_grade.data
+        assert 4 <= form.high_school_avg_grade.data <=10, 'A grade should be in [4,10] interval'
+        new_candidate.high_school_avg_grade = form.high_school_avg_grade.data
+        assert 4 <= form.admission_grade.data <=10, 'A grade should be in [4,10] interval'
+        new_candidate.admission_grade = form.admission_grade.data
+        assert 1<= form.first_option.data <= spec_no, 'Specialization number should be between 1 and {}'.format(spec_no)
+        new_candidate.first_option = form.first_option.data
+        assert 1<= form.second_option.data <= spec_no, 'Specialization number should be between 1 and {}'.format(spec_no)
+        new_candidate.second_option = form.second_option.data
+        save_candidate(new_candidate)
