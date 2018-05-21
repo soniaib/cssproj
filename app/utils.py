@@ -2,15 +2,18 @@ from db import DatabaseController as DbC
 
 def get_results():
 	all_results = DbC.get_admission_results(1)
+	assert all_results is not None, "Empty list of candidates"
 	return all_results
 
 def calculate_final_score_for_candidate (item):
 	final_score = max(item.info_grade, item.math_grade)*0.3 + item.high_school_avg_grade*0.2 + 0.5*item.admission_grade
+	assert 4 <= final_score <= 10, "Value out of range [4,10] for admision grade"
 	return final_score
 
 def set_admision_status (item,specs,opt_arr):
 	if item.final_score < 5:
 		allocation = DbC.AdmissionStatus.REJECTED
+		assert allocation.index(list(DbC.AdmissionStatus.REJECTED,DbC.AdmissionStatus.FREE,DbC.AdmissionStatus.FEE)), "Wrong status for candidate"
 		return allocation
 	if specs[item.specialization_id]["free_spots"] > 2:
 		allocation = DbC.AdmissionStatus.FREE
@@ -28,6 +31,7 @@ def set_admision_status (item,specs,opt_arr):
 			specs[item.specialization_id]["free_spots"] -= 1
 		else:
 			allocation = DbC.AdmissionStatus.REJECTED
+	assert allocation.index(list(DbC.AdmissionStatus.REJECTED,DbC.AdmissionStatus.FREE,DbC.AdmissionStatus.FEE)), "Wrong status for candidate"
 	return allocation
 
 def calculate_results():
@@ -64,6 +68,7 @@ def calculate_results():
 		# print("AdmissionResult: ", item.allocation)
 		# print("Specialization: ", specs[item.specialization_id]["name"])
 		# print("Specialization ID: ", item.specialization_id)
+	assert repartition is not None, "Empty list of candidates for repartition"
 	return repartition
 
 def set_results():
