@@ -126,60 +126,6 @@
 	<first_option>1</first_option>
 	<second_option>2</second_option>
 </candidate>
-<repartition>
-	<candidate_cnp>12345677899</candidate_cnp>
-	<final_score>9.3</final_score>
-	<allocation>FREE</allocation>
-	<specialization_id>1</specialization_id>
-</repartition>
-<repartition>
-	<candidate_cnp>2890420574799</candidate_cnp>
-	<final_score>9.146</final_score>
-	<allocation>FREE</allocation>
-	<specialization_id>1</specialization_id>
-</repartition>
-<repartition>
-	<candidate_cnp>12345</candidate_cnp>
-	<final_score>8.69</final_score>
-	<allocation>FREE</allocation>
-	<specialization_id>1</specialization_id>
-</repartition>
-<repartition>
-	<candidate_cnp>123123</candidate_cnp>
-	<final_score>6.6</final_score>
-	<allocation>FREE</allocation>
-	<specialization_id>1</specialization_id>
-</repartition>
-<repartition>
-	<candidate_cnp>1234</candidate_cnp>
-	<final_score>5.7</final_score>
-	<allocation>FREE</allocation>
-	<specialization_id>1</specialization_id>
-</repartition>
-<repartition>
-	<candidate_cnp>987654321</candidate_cnp>
-	<final_score>8.47</final_score>
-	<allocation>FREE</allocation>
-	<specialization_id>2</specialization_id>
-</repartition>
-<repartition>
-	<candidate_cnp>123412344</candidate_cnp>
-	<final_score>8.0</final_score>
-	<allocation>FREE</allocation>
-	<specialization_id>2</specialization_id>
-</repartition>
-<repartition>
-	<candidate_cnp>19022222222</candidate_cnp>
-	<final_score>9.09</final_score>
-	<allocation>FREE</allocation>
-	<specialization_id>3</specialization_id>
-</repartition>
-<repartition>
-	<candidate_cnp>555555555</candidate_cnp>
-	<final_score>4.0</final_score>
-	<allocation>REJECTED</allocation>
-	<specialization_id>3</specialization_id>
-</repartition>
 <candidate>
 	<cnp>213</cnp>
 	<first_name>test</first_name>
@@ -216,3 +162,75 @@
 	<first_option>1</first_option>
 	<second_option>2</second_option>
 </candidate>
+<repartition>
+	<candidate_cnp>12345677899</candidate_cnp>
+	<final_score>9.3</final_score>
+	<allocation>FREE</allocation>
+	<specialization_id>1</specialization_id>
+</repartition>
+<repartition>
+	<candidate_cnp>2890420574799</candidate_cnp>
+	<final_score>9.146</final_score>
+	<allocation>FREE</allocation>
+	<specialization_id>1</specialization_id>
+</repartition>
+<repartition>
+	<candidate_cnp>12345</candidate_cnp>
+	<final_score>8.69</final_score>
+	<allocation>FREE</allocation>
+	<specialization_id>1</specialization_id>
+</repartition>
+<repartition>
+	<candidate_cnp>123123</candidate_cnp>
+	<final_score>6.6</final_score>
+	<allocation>FREE</allocation>
+	<specialization_id>1</specialization_id>
+</repartition>
+<repartition>
+	<candidate_cnp>213</candidate_cnp>
+	<final_score>6.2</final_score>
+	<allocation>FREE</allocation>
+	<specialization_id>1</specialization_id>
+</repartition>
+<repartition>
+	<candidate_cnp>1234567891011</candidate_cnp>
+	<final_score>6.2</final_score>
+	<allocation>FREE</allocation>
+	<specialization_id>1</specialization_id>
+</repartition>
+<repartition>
+	<candidate_cnp>1234</candidate_cnp>
+	<final_score>5.7</final_score>
+	<allocation>FREE</allocation>
+	<specialization_id>1</specialization_id>
+</repartition>
+<repartition>
+	<candidate_cnp>987654321</candidate_cnp>
+	<final_score>8.47</final_score>
+	<allocation>FREE</allocation>
+	<specialization_id>2</specialization_id>
+</repartition>
+<repartition>
+	<candidate_cnp>123412344</candidate_cnp>
+	<final_score>8.0</final_score>
+	<allocation>FREE</allocation>
+	<specialization_id>2</specialization_id>
+</repartition>
+<repartition>
+	<candidate_cnp>123</candidate_cnp>
+	<final_score>5.0</final_score>
+	<allocation>FREE</allocation>
+	<specialization_id>2</specialization_id>
+</repartition>
+<repartition>
+	<candidate_cnp>19022222222</candidate_cnp>
+	<final_score>9.09</final_score>
+	<allocation>FREE</allocation>
+	<specialization_id>3</specialization_id>
+</repartition>
+<repartition>
+	<candidate_cnp>555555555</candidate_cnp>
+	<final_score>4.0</final_score>
+	<allocation>REJECTED</allocation>
+	<specialization_id>3</specialization_id>
+</repartition>

@@ -370,6 +370,8 @@ def delete_candidate_by_id(cnp_identifier):
         new_f = f.readlines()
         f.seek(0)
         count = 0
+        initial_len = len(new_f)
+        after_delete_len = initial_len-1
         while count < (len(new_f)):
             line = new_f[count]
             tag = get_begin_tag(line)
@@ -378,11 +380,15 @@ def delete_candidate_by_id(cnp_identifier):
                 id_line = get_tag_value(new_line)
                 print(id_line)
                 if int(id_line) == cnp_identifier:
+                    found = 1
                     count += 12
                     continue
             f.write(new_f[count])
             count += 1
         f.truncate()
+        if found == 1:
+            assert after_delete_len==len(new_f)-1, 'Record was not properly deleted'
+        
 
 
 #print("\ndelete candidate by cnp")
