@@ -389,8 +389,6 @@ def delete_candidate_by_id(cnp_identifier):
         if found == 1:
             assert after_delete_len==len(new_f)-1, 'Record was not properly deleted'
         
-
-
 #print("\ndelete candidate by cnp")
 #delete_candidate_by_id(123456)
 
