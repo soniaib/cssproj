@@ -21,11 +21,25 @@ Phase 1 - application development
 		- update: having the object with the updated attributes, the current entry if the database for the object is removed, and then the current object is inserted 
 
 
-2. Input/output management module - to be added
-	
+2. Input/output management module - Serban Costandache
+	- updated the routes.py to generate the data necessary to be displayed on the following pages:
+		- index
+		- add candidate form 
+	- added form actions for processing new candidates
+	- created the page templates
 
-3. Admission process module - Sonia Iuliana Botezatu
-
+3. Admission process module - Oriana Oniciuc si Sonia Botezatu
+    - created the utils.py module that uses the DatabaseController in order to:
+		- retrieve the admission results;
+		- calculate the candidate admission score;
+		- set the admission status based on the scores of the candidates and the available spots;
+		- calculate the candidate repartition for all subscribed individuals;
+		- update the database accordingly after repartition.
+	- updated the routes.py to generate the data necessary to be displayed on the following pages:
+		- candidates
+		- specializations
+		- admission results
+	- created the page templates and styled the pages.
 
 
 Phase 2 - unit testing
@@ -33,15 +47,15 @@ Phase 2 - unit testing
 1. Database module - Puiu Ana Maria
 	- unit tests that are verifying:
 		- the correctness and completeness of the operations: database operations are executed and are producing the expected results
-		- handling of missing data: if data is misisng, defauld values are used 
+		- handling of missing data: if data is missing, default values are used 
 		- handling of incorrect data: incorrect data is leading to errors 
 
-2. Input/output management module
+2. Input/output management module - Serban Costandache
 	- testing if there is an empty form sent
 	- testing if the grades are not empty
 	- checking if grades are in range [1, 10]
 
-3. Admission process module 
+3. Admission process module - Oriana Oniciuc si Sonia Botezatu
 	- testing if the results are empty
 	- checking if the admission status is correctly set - using mocks for candidate and options
 	- checking if the admission formula returns the corresponding status - using mocks for candidate
@@ -49,17 +63,17 @@ Phase 2 - unit testing
 
 Phase 3 - use of assertions
 
-1. Database module - to be added
+1. Database module - Puiu Ana Maria
 	- the delete is working
 	- the returned list of candidates is not empty
 
-2. Input/output management module - to be added
+2. Input/output management module - Serban Costandache
 	- the admission status is correctly stored
 	- the length of the CNP is 13
 	- the name respects a regular expression
 	- the grades are in range [4,10]
 	- the options are form the current list
 
-3. Admission process module - to be added
+3. Admission process module - Oriana Oniciuc si Sonia Botezatu
 	- admission status is computed correctly
 	- final score is in range [4,10]
