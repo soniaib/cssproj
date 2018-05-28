@@ -4,8 +4,8 @@ Phase 1 - application development
 	- low-level database that is using a xml file to store the information
 	- each table and column is defined using a tag, and the actual data that is stored in the database is found between columns tags 
 	- the tables defined are: 
-		- specialization: detailes about the main areas the candidates can apply to (description, capacity)
-		- candidate: detailes about the students that are participating in the admission contest (name, email, grades)
+		- specialization: details about the main areas the candidates can apply to (description, capacity)
+		- candidate: details about the students that are participating in the admission contest (name, email, grades)
 		- repartition: the results of the admission contest; each student has a final score and a admission result (budget-financed / fee payer / rejected) that may be associated or not with a specialization
 	- for database operations, each object is serialized/ deserialized, meaning it's transformed into, and from, a representation defined by xml tags  	
 		ex: <repartition>
@@ -22,8 +22,9 @@ Phase 1 - application development
 
 
 2. Input/output management module - to be added
+	
 
-3. Admission process module - to be added
+3. Admission process module - Sonia Iuliana Botezatu
 
 
 
@@ -35,16 +36,30 @@ Phase 2 - unit testing
 		- handling of missing data: if data is misisng, defauld values are used 
 		- handling of incorrect data: incorrect data is leading to errors 
 
-2. Input/output management module - to be added
+2. Input/output management module
+	- testing if there is an empty form sent
+	- testing if the grades are not empty
+	- checking if grades are in range [1, 10]
 
-3. Admission process module - to be added
-
+3. Admission process module 
+	- testing if the results are empty
+	- checking if the admission status is correctly set - using mocks for candidate and options
+	- checking if the admission formula returns the corresponding status - using mocks for candidate
+	- testing if the admission formula returns the right value - using mocks for candidate
 
 Phase 3 - use of assertions
 
 1. Database module - to be added
-	
+	- the delete is working
+	- the returned list of candidates is not empty
+
 2. Input/output management module - to be added
+	- the admission status is correctly stored
+	- the length of the CNP is 13
+	- the name respects a regular expression
+	- the grades are in range [4,10]
+	- the options are form the current list
 
 3. Admission process module - to be added
-
+	- admission status is computed correctly
+	- final score is in range [4,10]
