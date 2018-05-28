@@ -1,0 +1,50 @@
+Phase 1 - application development
+
+1. Database module - Puiu Ana Maria
+	- low-level database that is using a xml file to store the information
+	- each table and column is defined using a tag, and the actual data that is stored in the database is found between columns tags 
+	- the tables defined are: 
+		- specialization: detailes about the main areas the candidates can apply to (description, capacity)
+		- candidate: detailes about the students that are participating in the admission contest (name, email, grades)
+		- repartition: the results of the admission contest; each student has a final score and a admission result (budget-financed / fee payer / rejected) that may be associated or not with a specialization
+	- for database operations, each object is serialized/ deserialized, meaning it's transformed into, and from, a representation defined by xml tags  	
+		ex: <repartition>
+				<candidate_cnp>12345677899</candidate_cnp>
+				<final_score>9.3</final_score>
+				<allocation>FREE</allocation>
+				<specialization_id>1</specialization_id>
+			</repartition>
+	- database operations defined for all tables:
+		- select: retrieval of information based on a search criteria: id, cnp or not; implemented by reading the file line by line and parsing the tags in search of the given parameter
+		- insert: the new entry is serialized and added at the end of the file
+		- delete: the whole file is rewritten without the object that has to be deleted
+		- update: having the object with the updated attributes, the current entry if the database for the object is removed, and then the current object is inserted 
+
+
+2. Input/output management module - to be added
+
+3. Admission process module - to be added
+
+
+
+Phase 2 - unit testing
+
+1. Database module - Puiu Ana Maria
+	- unit tests that are verifying:
+		- the correctness and completeness of the operations 
+		- handling of missing data
+		- handling of incorrect data 
+
+2. Input/output management module - to be added
+
+3. Admission process module - to be added
+
+
+Phase 3 - use of assertions
+
+1. Database module - to be added
+	
+2. Input/output management module - to be added
+
+3. Admission process module - to be added
+
