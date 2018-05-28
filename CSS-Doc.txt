@@ -31,9 +31,9 @@ Phase 2 - unit testing
 
 1. Database module - Puiu Ana Maria
 	- unit tests that are verifying:
-		- the correctness and completeness of the operations 
-		- handling of missing data
-		- handling of incorrect data 
+		- the correctness and completeness of the operations: database operations are executed and are producing the expected results
+		- handling of missing data: if data is misisng, defauld values are used 
+		- handling of incorrect data: incorrect data is leading to errors 
 
 2. Input/output management module - to be added
 
